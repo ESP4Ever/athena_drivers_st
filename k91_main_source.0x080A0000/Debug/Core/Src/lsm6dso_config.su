@@ -1,0 +1,7 @@
+lsm6dso_config.c:145:25:cal_process_sample	48	static
+lsm6dso_config.c:233:13:lsm6dso_reinit_device	24	static
+lsm6dso_config.c:259:9:lsm6dso_acc_self_test	72	static
+lsm6dso_config.c:389:9:lsm6dso_gyro_self_test	72	static
+lsm6dso_config.c:511:9:lsm6dso_acc_calibration	176	static
+lsm6dso_config.c:595:9:lsm6dso_gyro_calibration	176	static
+lsm6dso_config.c:683:13:platform_delay	16	static

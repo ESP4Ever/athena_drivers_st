@@ -1,0 +1,7 @@
+ak09918_reg.c:34:9:ak09918_read_reg	40	static
+ak09918_reg.c:52:9:ak09918_write_reg	40	static
+ak09918_reg.c:63:9:ak099xx_set_mode	24	static
+ak09918_reg.c:78:9:ak099xx_get_WhoAmI	24	static
+ak09918_reg.c:95:9:ak099xx_soft_reset	24	static
+ak09918_reg.c:111:9:ak099xx_check_rdy	24	static
+ak09918_reg.c:135:9:ak099xx_get_data	48	static

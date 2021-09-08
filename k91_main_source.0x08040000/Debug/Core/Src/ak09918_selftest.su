@@ -1,0 +1,3 @@
+ak09918_selftest.c:81:9:aks_fst_test_data	24	static
+ak09918_selftest.c:102:13:platform_delay	16	static
+ak09918_selftest.c:111:9:ak09918_self_test	40	static

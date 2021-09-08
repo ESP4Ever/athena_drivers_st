@@ -1,0 +1,9 @@
+flash_interface.c:28:17:GetSector	24	static
+flash_interface.c:77:17:GetSectorSize	24	static
+flash_interface.c:92:10:flash_unlock	16	static
+flash_interface.c:99:10:flash_lock	16	static
+flash_interface.c:106:10:flash_erase_by_sector	32	static
+flash_interface.c:135:10:flash_program_by_word	16	static
+flash_interface.c:149:6:flash_update_bootup_sector	24	static
+flash_interface.c:178:6:flash_update_boot_magic_number	24	static
+flash_interface.c:194:6:flash_clear_boot_magic_number	24	static

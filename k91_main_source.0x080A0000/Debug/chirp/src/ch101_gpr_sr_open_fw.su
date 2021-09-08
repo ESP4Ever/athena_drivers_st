@@ -1,0 +1,3 @@
+ch101_gpr_sr_open_fw.c:13:10:get_ch101_gpr_sr_open_fw_ram_init_addr	4	static
+ch101_gpr_sr_open_fw.c:18:10:get_ch101_gpr_sr_open_fw_ram_init_size	4	static
+ch101_gpr_sr_open_fw.c:29:22:get_ram_ch101_gpr_sr_open_init_ptr	4	static

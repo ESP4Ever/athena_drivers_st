@@ -1,0 +1,2 @@
+ch101_gpr_sr_open.c:5:9:ch101_gpr_sr_open_init	24	static
+ch101_gpr_sr_open.c:57:6:ch101_gpr_sr_open_store_pt_result	24	static

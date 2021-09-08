@@ -1,0 +1,15 @@
+led_aw9110_driver.c:51:16:led_platform_write	40	static
+led_aw9110_driver.c:77:16:led_platform_read	40	static
+led_aw9110_driver.c:93:13:aw9110_led_blink	32	static
+led_aw9110_driver.c:126:12:aw9110_led_off	24	static
+led_aw9110_driver.c:140:12:aw9110_led_on	32	static
+led_aw9110_driver.c:156:12:aw9110_hw_on	16	static
+led_aw9110_driver.c:168:12:aw9110_hw_off	16	static
+led_aw9110_driver.c:185:12:led_hw_reset	16	static
+led_aw9110_driver.c:203:5:led_init	24	static
+led_aw9110_driver.c:225:16:led_enable	16	static
+led_aw9110_driver.c:236:16:led_disable	16	static
+led_aw9110_driver.c:246:5:led_activate	24	static
+led_aw9110_driver.c:258:5:led_init_complete	16	static
+led_aw9110_driver.c:265:5:led_config	24	static
+led_aw9110_driver.c:311:5:led_publish_config_resp	16	static

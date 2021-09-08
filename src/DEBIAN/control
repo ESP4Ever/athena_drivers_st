@@ -1,0 +1,14 @@
+Package: athena-sensor
+Version: 1.0.0
+Section: uils
+Priority: required
+Depends:
+Suggests:
+Architecture: arm64
+Installed-Size: 515
+Maintainer: huangchangjiang<huangchangjiang@xiaomi.com>
+Original-Maintainer: huangchangjiang<huangchangjiang@xiaomi.com>
+Provides:
+Description: xiaomi athena sensor lib
+Homepage: http://www.mi.com/
+

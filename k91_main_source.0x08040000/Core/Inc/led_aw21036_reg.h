@@ -1,0 +1,1469 @@
+/*
+ * led_aw21036_reg.h
+ *
+ *  Created on: 2021年3月13日
+ *      Author: swl
+ */
+
+#ifndef INC_LED_AW21036_REG_H_
+#define INC_LED_AW21036_REG_H_
+
+#include <stdint.h>
+#include <stddef.h>
+#include <math.h>
+#define LED_CURRENT_MAX 0X0F
+#define HEAD_LED_AW21036_I2C_COMUNICATE_ADD ((0x68))
+
+#define ORANGE_R 0xCC
+#define ORANGE_G 0x1E
+#define ORANGE_B 0x00
+
+#define DARKBLUE_R 0x00
+#define DARKBLUE_G 0x1E
+#define DARKBLUE_B 0xFF
+
+#define SKYBLUE_R 0x1E
+#define SKYBLUE_G 0xF0
+#define SKYBLUE_B 0xFF
+
+#define RED_R 0xFF
+#define RED_G 0x00
+#define RED_B 0x00
+
+#define FLOW_WATER_COFIG_TYPE 15
+
+unsigned char COL_REG_value[] = { 0x00, 0xFF };
+
+unsigned char LED_R_COL_REG[] = {
+  0x52,
+  0x4F,
+  0x4C,
+  0x5E,
+  0x64,
+  0x61,
+  0x5B,
+  0x58,
+  0x55,
+};
+
+typedef int32_t(*stmdev_write_ptr) (void *, uint8_t, uint8_t *, uint16_t);
+typedef int32_t(*stmdev_read_ptr) (void *, uint8_t, uint8_t *, uint16_t);
+void headled_flow_water(void);
+typedef struct {
+        /** Component mandatory fields **/
+  stmdev_write_ptr write_reg;
+  stmdev_read_ptr read_reg;
+        /** Customizable optional pointer **/
+  void *handle;
+} stmdev_ctx_t;
+
+/******************************************************
+ *
+ * Register List
+ *
+ *****************************************************/
+#define AW21036_REG_GCR		0x00
+#define AW21036_REG_BR0		0x01
+#define AW21036_REG_BR1		0x02
+#define AW21036_REG_BR2		0x03
+#define AW21036_REG_BR3		0x04
+#define AW21036_REG_BR4		0x05
+#define AW21036_REG_BR5		0x06
+#define AW21036_REG_BR6		0x07
+#define AW21036_REG_BR7		0x08
+#define AW21036_REG_BR8		0x09
+#define AW21036_REG_BR9		0x0A
+#define AW21036_REG_BR10	0x0B
+#define AW21036_REG_BR11	0x0C
+#define AW21036_REG_BR12	0x0D
+#define AW21036_REG_BR13	0x0E
+#define AW21036_REG_BR14	0x0F
+#define AW21036_REG_BR15	0x10
+#define AW21036_REG_BR16	0x11
+#define AW21036_REG_BR17	0x12
+#define AW21036_REG_BR18	0x13
+#define AW21036_REG_BR19	0x14
+#define AW21036_REG_BR20	0x15
+#define AW21036_REG_BR21	0x16
+#define AW21036_REG_BR22	0x17
+#define AW21036_REG_BR23	0x18
+#define AW21036_REG_BR24	0x19
+#define AW21036_REG_BR25	0x1A
+#define AW21036_REG_BR26	0x1B
+#define AW21036_REG_BR27	0x1C
+#define AW21036_REG_BR28	0x1D
+#define AW21036_REG_BR29	0x1E
+#define AW21036_REG_BR30	0x1F
+#define AW21036_REG_BR31	0x20
+#define AW21036_REG_BR32	0x21
+#define AW21036_REG_BR33	0x22
+#define AW21036_REG_BR34	0x23
+#define AW21036_REG_BR35	0x24
+#define AW21036_REG_UPDATE	0x49
+#define AW21036_REG_COL0	0x4A
+#define AW21036_REG_COL1	0x4B
+#define AW21036_REG_COL2	0x4C
+#define AW21036_REG_COL3	0x4D
+#define AW21036_REG_COL4	0x4E
+#define AW21036_REG_COL5	0x4F
+#define AW21036_REG_COL6	0x50
+#define AW21036_REG_COL7	0x51
+#define AW21036_REG_COL8	0x52
+#define AW21036_REG_COL9	0x53
+#define AW21036_REG_COL10	0x54
+#define AW21036_REG_COL11	0x55
+#define AW21036_REG_COL12	0x56
+#define AW21036_REG_COL13	0x57
+#define AW21036_REG_COL14	0x58
+#define AW21036_REG_COL15	0x59
+#define AW21036_REG_COL16	0x5A
+#define AW21036_REG_COL17	0x5B
+#define AW21036_REG_COL18	0x5C
+#define AW21036_REG_COL19	0x5D
+#define AW21036_REG_COL20	0x5E
+#define AW21036_REG_COL21	0x5F
+#define AW21036_REG_COL22	0x60
+#define AW21036_REG_COL23	0x61
+#define AW21036_REG_COL24	0x62
+#define AW21036_REG_COL25	0x63
+#define AW21036_REG_COL26	0x64
+#define AW21036_REG_COL27	0x65
+#define AW21036_REG_COL28	0x66
+#define AW21036_REG_COL29	0x67
+#define AW21036_REG_COL30	0x68
+#define AW21036_REG_COL31	0x69
+#define AW21036_REG_COL32	0x6A
+#define AW21036_REG_COL33	0x6B
+#define AW21036_REG_COL34	0x6C
+#define AW21036_REG_COL35	0x6D
+#define AW21036_REG_GCCR	0x6E
+#define AW21036_REG_PHCR	0x70
+#define AW21036_REG_OSDCR	0x71
+#define AW21036_REG_OSST0	0x72
+#define AW21036_REG_OSST1	0x73
+#define AW21036_REG_OSST2	0x74
+#define AW21036_REG_OSST3	0x75
+#define AW21036_REG_OSST4	0x76
+#define AW21036_REG_OTCR	0x77
+#define AW21036_REG_SSCR	0x78
+#define AW21036_REG_UVCR	0x79
+#define AW21036_REG_GCR2	0x7A
+#define AW21036_REG_GCR4	0x7C
+#define AW21036_REG_VER		0x7E
+#define AW21036_REG_RESET	0x7F
+#define AW21036_REG_WBR		0x90
+#define AW21036_REG_WBG		0x91
+#define AW21036_REG_WBB		0x92
+#define AW21036_REG_PATCFG	0xA0
+#define AW21036_REG_PATGO	0xA1
+#define AW21036_REG_PATT0	0xA2
+#define AW21036_REG_PATT1	0xA3
+#define AW21036_REG_PATT2	0xA4
+#define AW21036_REG_PATT3	0xA5
+#define AW21036_REG_FADEH	0xA6
+#define AW21036_REG_FADEL	0xA7
+#define AW21036_REG_GCOLR	0xA8
+#define AW21036_REG_GCOLG	0xA9
+#define AW21036_REG_GCOLB	0xAA
+#define AW21036_REG_GCFG0	0xAB
+#define AW21036_REG_GCFG1	0xAC
+
+/****************12 leds *********************/
+#define LED5_B_COL  0x4A
+#define LED4_G_COL 	0x4B
+#define LED4_B_COL	0x4C
+#define LED4_R_COL	0x4D
+#define LED3_R_COL	0x4E
+#define LED3_B_COL	0x4F
+#define LED2_B_COL	0x50
+#define LED3_G_COL	0x51
+#define LED1_R_COL	0x52
+#define LED12_G_COL	0x53
+#define LED11_R_COL	0x54
+#define LED11_G_COL	0x55
+#define LED11_B_COL	0x56
+#define LED12_B_COL	0x57
+#define LED10_R_COL	0x58
+#define LED5_G_COL	0x59
+#define LED5_R_COL	0x5A
+#define LED2_G_COL	0x5B
+#define LED2_R_COL	0x5C
+#define LED6_B_COL	0x5D
+#define LED6_G_COL	0x5E
+#define LED1_B_COL	0x5F
+#define LED1_G_COL	0x60
+#define LED10_B_COL	0x61
+#define LED6_R_COL	0x62
+#define LED9_R_COL	0x63
+#define LED9_G_COL	0x64
+#define LED7_R_COL	0x65
+#define LED7_G_COL	0x66
+#define LED7_B_COL	0x67
+#define LED8_B_COL	0x68
+#define LED8_G_COL	0x69
+#define LED8_R_COL	0x6A
+#define LED9_B_COL	0x6B
+#define LED12_R_COL	0x6C
+#define LED10_G_COL	0x6D
+/******************************************************
+ *
+ * Register Write/Read Access
+ *
+ *****************************************************/
+#define REG_NONE_ACCESS		0
+#define REG_RD_ACCESS		(1 << 0)
+#define REG_WR_ACCESS		(1 << 1)
+#define AW21036_REG_MAX		0xFF
+
+const unsigned char aw21036_reg_access[AW21036_REG_MAX] = {
+  [AW21036_REG_GCR] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_BR0] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_BR1] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_BR2] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_BR3] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_BR4] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_BR5] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_BR6] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_BR7] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_BR8] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_BR9] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_BR10] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_BR11] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_BR12] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_BR13] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_BR14] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_BR15] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_BR16] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_BR17] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_BR18] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_BR19] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_BR20] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_BR21] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_BR22] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_BR23] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_BR24] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_BR25] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_BR26] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_BR27] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_BR28] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_BR29] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_BR30] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_BR31] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_BR32] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_BR33] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_BR34] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_BR35] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_UPDATE] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_COL0] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_COL1] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_COL2] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_COL3] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_COL4] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_COL5] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_COL6] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_COL7] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_COL8] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_COL9] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_COL10] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_COL11] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_COL12] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_COL13] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_COL14] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_COL15] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_COL16] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_COL17] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_COL18] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_COL19] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_COL20] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_COL21] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_COL22] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_COL23] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_COL24] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_COL25] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_COL26] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_COL27] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_COL28] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_COL29] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_COL30] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_COL31] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_COL32] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_COL33] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_COL34] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_COL35] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_GCCR] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_PHCR] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_OSDCR] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_OSST0] = REG_RD_ACCESS,
+  [AW21036_REG_OSST1] = REG_RD_ACCESS,
+  [AW21036_REG_OSST2] = REG_RD_ACCESS,
+  [AW21036_REG_OSST3] = REG_RD_ACCESS,
+  [AW21036_REG_OSST4] = REG_RD_ACCESS,
+  [AW21036_REG_OTCR] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_SSCR] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_UVCR] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_GCR2] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_GCR4] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_VER] = REG_RD_ACCESS,
+  [AW21036_REG_RESET] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_WBR] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_WBG] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_WBB] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_PATCFG] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_PATGO] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_PATT0] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_PATT1] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_PATT2] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_PATT3] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_FADEH] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_FADEL] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_GCOLR] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_GCOLG] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_GCOLB] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_GCFG0] = REG_RD_ACCESS | REG_WR_ACCESS,
+  [AW21036_REG_GCFG1] = REG_RD_ACCESS | REG_WR_ACCESS,
+};
+
+/******************************************************
+ *
+ * Register Detail
+ *
+ *****************************************************/
+#define AW21036_BIT_GCR_CHIPEN_MASK		(~(1<<0))
+#define AW21036_BIT_GCR_CHIPEN_ENABLE		(1<<0)
+#define AW21036_BIT_GCR_CHIPEN_DISABLE		(0<<0)
+#define AW21036_BIT_GCR_CLKFRQ_MASK		(~(7<<4))
+#define AW21036_BIT_GCR_CLKFRQ_16M		(0<<4)
+#define AW21036_BIT_GCR_CLKFRQ_8M		(1<<4)
+#define AW21036_BIT_GCR_CLKFRQ_1M		(2<<4)
+#define AW21036_BIT_GCR_CLKFRQ_512K		(3<<4)
+#define AW21036_BIT_GCR_CLKFRQ_256K		(4<<4)
+#define AW21036_BIT_GCR_CLKFRQ_125K		(5<<4)
+#define AW21036_BIT_GCR_CLKFRQ_62K		(6<<4)
+#define AW21036_BIT_GCR_CLKFRQ_31K		(7<<4)
+#define AW21036_BIT_GCR_APSE_MASK		(~(1<<7))
+#define AW21036_BIT_GCR_APSE_ENABLE		(1<<7)
+#define AW21036_BIT_GCR_APSE_DISABLE		(0<<7)
+
+#define AW21036_BIT_OSDCR_OTH_0V1		(0<<3)
+#define AW21036_BIT_OSDCR_OTH_0V2		(1<<3)
+
+#define AW21036_BIT_OSDCR_STH_1V		(0<<2)
+#define AW21036_BIT_OSDCR_STH_0V5		(1<<2)
+
+/*********************************************************
+ *
+ * chip info
+ *
+ ********************************************************/
+#define AW21036_CHIP_VERSION	0xA8
+#define AW21036_CHIPID		0x18
+
+enum aw21036_pwm_freq {
+  AW21036_PWM_FREQ_62K = 0,
+  AW21036_PWM_FREQ_32K = 1,
+  AW21036_PWM_FREQ_4K = 2,
+  AW21036_PWM_FREQ_2K = 3,
+  AW21036_PWM_FREQ_1K = 4,
+  AW21036_PWM_FREQ_500 = 5,
+  AW21036_PWM_FREQ_244 = 6,
+  AW21036_PWM_FREQ_122 = 7,
+};
+
+/*********************************************************
+ *
+ * struct
+ *
+ ********************************************************/
+struct aw21036 {
+  unsigned char flags;
+  unsigned char chipid;
+  unsigned int imax;
+  unsigned int fw_version;
+
+  unsigned int pwm_freq;
+  unsigned int led_current;
+
+  unsigned char effect;
+  unsigned char cfg;
+
+  unsigned int rgbcolor;
+  unsigned int rgbbrightness;
+};
+
+typedef struct aw21036_cfg {
+  unsigned char *p;
+  unsigned int count;
+} AW21036_CFG;
+
+unsigned char aw21036_led_red_on[] = {
+  0x6E, LED_CURRENT_MAX,
+  0xAB, 0x00,
+  0xAC, 0x00,
+
+  0x01, 0xFF,
+  0x02, 0xFF,
+  0x03, 0xFF,
+  0x04, 0xFF,
+  0x05, 0xFF,
+  0x06, 0xFF,
+  0x07, 0xFF,
+  0x08, 0xFF,
+  0x09, 0xFF,
+  0x0A, 0xFF,
+  0x0B, 0xFF,
+  0x0C, 0xFF,
+  0x0D, 0xFF,
+  0x0E, 0xFF,
+  0x0F, 0xFF,
+  0x10, 0xFF,
+  0x11, 0xFF,
+  0x12, 0xFF,
+  0x13, 0xFF,
+  0x14, 0xFF,
+  0x15, 0xFF,
+  0x16, 0xFF,
+  0x17, 0xFF,
+  0x18, 0xFF,
+  0x19, 0xFF,
+  0x1A, 0xFF,
+  0x1B, 0xFF,
+  0x1C, 0xFF,
+  0x1D, 0xFF,
+  0x1E, 0xFF,
+  0x1F, 0xFF,
+  0x20, 0xFF,
+  0x21, 0xFF,
+  0x22, 0xFF,
+  0x23, 0xFF,
+  0x24, 0xFF,
+
+  LED1_B_COL, RED_B,
+  LED1_G_COL, RED_G,
+  LED1_R_COL, RED_R,
+  LED2_B_COL, RED_B,
+  LED2_G_COL, RED_G,
+  LED2_R_COL, RED_R,
+  LED3_B_COL, RED_B,
+  LED3_G_COL, RED_G,
+  LED3_R_COL, RED_R,
+  LED4_B_COL, RED_B,
+  LED4_G_COL, RED_G,
+  LED4_R_COL, RED_R,
+  LED5_B_COL, RED_B,
+  LED5_G_COL, RED_G,
+  LED5_R_COL, RED_R,
+  LED6_B_COL, RED_B,
+  LED6_G_COL, RED_G,
+  LED6_R_COL, RED_R,
+  LED7_B_COL, RED_B,
+  LED7_G_COL, RED_G,
+  LED7_R_COL, RED_R,
+  LED8_B_COL, RED_B,
+  LED8_G_COL, RED_G,
+  LED8_R_COL, RED_R,
+  LED9_B_COL, RED_B,
+  LED9_G_COL, RED_G,
+  LED9_R_COL, RED_R,
+  LED10_B_COL, RED_B,
+  LED10_G_COL, RED_G,
+  LED10_R_COL, RED_R,
+  LED11_B_COL, RED_B,
+  LED11_G_COL, RED_G,
+  LED11_R_COL, RED_R,
+  LED12_B_COL, RED_B,
+  LED12_G_COL, RED_G,
+  LED12_R_COL, RED_R,
+
+  0x49, 0x00,
+};
+
+unsigned char aw21036_led_skyblue_on[] = {
+  0x6E, LED_CURRENT_MAX,
+  0xAB, 0x00,
+  0xAC, 0x00,
+
+  0x01, 0xFF,
+  0x02, 0xFF,
+  0x03, 0xFF,
+  0x04, 0xFF,
+  0x05, 0xFF,
+  0x06, 0xFF,
+  0x07, 0xFF,
+  0x08, 0xFF,
+  0x09, 0xFF,
+  0x0A, 0xFF,
+  0x0B, 0xFF,
+  0x0C, 0xFF,
+  0x0D, 0xFF,
+  0x0E, 0xFF,
+  0x0F, 0xFF,
+  0x10, 0xFF,
+  0x11, 0xFF,
+  0x12, 0xFF,
+  0x13, 0xFF,
+  0x14, 0xFF,
+  0x15, 0xFF,
+  0x16, 0xFF,
+  0x17, 0xFF,
+  0x18, 0xFF,
+  0x19, 0xFF,
+  0x1A, 0xFF,
+  0x1B, 0xFF,
+  0x1C, 0xFF,
+  0x1D, 0xFF,
+  0x1E, 0xFF,
+  0x1F, 0xFF,
+  0x20, 0xFF,
+  0x21, 0xFF,
+  0x22, 0xFF,
+  0x23, 0xFF,
+  0x24, 0xFF,
+
+  LED1_B_COL, SKYBLUE_B,
+  LED1_G_COL, SKYBLUE_G,
+  LED1_R_COL, SKYBLUE_R,
+  LED2_B_COL, SKYBLUE_B,
+  LED2_G_COL, SKYBLUE_G,
+  LED2_R_COL, SKYBLUE_R,
+  LED3_B_COL, SKYBLUE_B,
+  LED3_G_COL, SKYBLUE_G,
+  LED3_R_COL, SKYBLUE_R,
+  LED4_B_COL, SKYBLUE_B,
+  LED4_G_COL, SKYBLUE_G,
+  LED4_R_COL, SKYBLUE_R,
+  LED5_B_COL, SKYBLUE_B,
+  LED5_G_COL, SKYBLUE_G,
+  LED5_R_COL, SKYBLUE_R,
+  LED6_B_COL, SKYBLUE_B,
+  LED6_G_COL, SKYBLUE_G,
+  LED6_R_COL, SKYBLUE_R,
+  LED7_B_COL, SKYBLUE_B,
+  LED7_G_COL, SKYBLUE_G,
+  LED7_R_COL, SKYBLUE_R,
+  LED8_B_COL, SKYBLUE_B,
+  LED8_G_COL, SKYBLUE_G,
+  LED8_R_COL, SKYBLUE_R,
+  LED9_B_COL, SKYBLUE_B,
+  LED9_G_COL, SKYBLUE_G,
+  LED9_R_COL, SKYBLUE_R,
+  LED10_B_COL, SKYBLUE_B,
+  LED10_G_COL, SKYBLUE_G,
+  LED10_R_COL, SKYBLUE_R,
+  LED11_B_COL, SKYBLUE_B,
+  LED11_G_COL, SKYBLUE_G,
+  LED11_R_COL, SKYBLUE_R,
+  LED12_B_COL, SKYBLUE_B,
+  LED12_G_COL, SKYBLUE_G,
+  LED12_R_COL, SKYBLUE_R,
+
+  0x49, 0x00,
+};
+
+unsigned char aw21036_led_darkblue_on[] = {
+  0x6E, LED_CURRENT_MAX,
+  0xAB, 0x00,
+  0xAC, 0x00,
+
+  0x01, 0xFF,
+  0x02, 0xFF,
+  0x03, 0xFF,
+  0x04, 0xFF,
+  0x05, 0xFF,
+  0x06, 0xFF,
+  0x07, 0xFF,
+  0x08, 0xFF,
+  0x09, 0xFF,
+  0x0A, 0xFF,
+  0x0B, 0xFF,
+  0x0C, 0xFF,
+  0x0D, 0xFF,
+  0x0E, 0xFF,
+  0x0F, 0xFF,
+  0x10, 0xFF,
+  0x11, 0xFF,
+  0x12, 0xFF,
+  0x13, 0xFF,
+  0x14, 0xFF,
+  0x15, 0xFF,
+  0x16, 0xFF,
+  0x17, 0xFF,
+  0x18, 0xFF,
+  0x19, 0xFF,
+  0x1A, 0xFF,
+  0x1B, 0xFF,
+  0x1C, 0xFF,
+  0x1D, 0xFF,
+  0x1E, 0xFF,
+  0x1F, 0xFF,
+  0x20, 0xFF,
+  0x21, 0xFF,
+  0x22, 0xFF,
+  0x23, 0xFF,
+  0x24, 0xFF,
+
+  LED1_B_COL, DARKBLUE_B,
+  LED1_G_COL, DARKBLUE_G,
+  LED1_R_COL, DARKBLUE_R,
+  LED2_B_COL, DARKBLUE_B,
+  LED2_G_COL, DARKBLUE_G,
+  LED2_R_COL, DARKBLUE_R,
+  LED3_B_COL, DARKBLUE_B,
+  LED3_G_COL, DARKBLUE_G,
+  LED3_R_COL, DARKBLUE_R,
+  LED4_B_COL, DARKBLUE_B,
+  LED4_G_COL, DARKBLUE_G,
+  LED4_R_COL, DARKBLUE_R,
+  LED5_B_COL, DARKBLUE_B,
+  LED5_G_COL, DARKBLUE_G,
+  LED5_R_COL, DARKBLUE_R,
+  LED6_B_COL, DARKBLUE_B,
+  LED6_G_COL, DARKBLUE_G,
+  LED6_R_COL, DARKBLUE_R,
+  LED7_B_COL, DARKBLUE_B,
+  LED7_G_COL, DARKBLUE_G,
+  LED7_R_COL, DARKBLUE_R,
+  LED8_B_COL, DARKBLUE_B,
+  LED8_G_COL, DARKBLUE_G,
+  LED8_R_COL, DARKBLUE_R,
+  LED9_B_COL, DARKBLUE_B,
+  LED9_G_COL, DARKBLUE_G,
+  LED9_R_COL, DARKBLUE_R,
+  LED10_B_COL, DARKBLUE_B,
+  LED10_G_COL, DARKBLUE_G,
+  LED10_R_COL, DARKBLUE_R,
+  LED11_B_COL, DARKBLUE_B,
+  LED11_G_COL, DARKBLUE_G,
+  LED11_R_COL, DARKBLUE_R,
+  LED12_B_COL, DARKBLUE_B,
+  LED12_G_COL, DARKBLUE_G,
+  LED12_R_COL, DARKBLUE_R,
+
+  0x49, 0x00,
+};
+
+unsigned char aw21036_led_orange_on[] = {
+  0x6E, LED_CURRENT_MAX,
+  0xAB, 0x00,
+  0xAC, 0x00,
+
+  0x01, 0xFF,
+  0x02, 0xFF,
+  0x03, 0xFF,
+  0x04, 0xFF,
+  0x05, 0xFF,
+  0x06, 0xFF,
+  0x07, 0xFF,
+  0x08, 0xFF,
+  0x09, 0xFF,
+  0x0A, 0xFF,
+  0x0B, 0xFF,
+  0x0C, 0xFF,
+  0x0D, 0xFF,
+  0x0E, 0xFF,
+  0x0F, 0xFF,
+  0x10, 0xFF,
+  0x11, 0xFF,
+  0x12, 0xFF,
+  0x13, 0xFF,
+  0x14, 0xFF,
+  0x15, 0xFF,
+  0x16, 0xFF,
+  0x17, 0xFF,
+  0x18, 0xFF,
+  0x19, 0xFF,
+  0x1A, 0xFF,
+  0x1B, 0xFF,
+  0x1C, 0xFF,
+  0x1D, 0xFF,
+  0x1E, 0xFF,
+  0x1F, 0xFF,
+  0x20, 0xFF,
+  0x21, 0xFF,
+  0x22, 0xFF,
+  0x23, 0xFF,
+  0x24, 0xFF,
+
+  LED1_B_COL, ORANGE_B,
+  LED1_G_COL, ORANGE_G,
+  LED1_R_COL, ORANGE_R,
+  LED2_B_COL, ORANGE_B,
+  LED2_G_COL, ORANGE_G,
+  LED2_R_COL, ORANGE_R,
+  LED3_B_COL, ORANGE_B,
+  LED3_G_COL, ORANGE_G,
+  LED3_R_COL, ORANGE_R,
+  LED4_B_COL, ORANGE_B,
+  LED4_G_COL, ORANGE_G,
+  LED4_R_COL, ORANGE_R,
+  LED5_B_COL, ORANGE_B,
+  LED5_G_COL, ORANGE_G,
+  LED5_R_COL, ORANGE_R,
+  LED6_B_COL, ORANGE_B,
+  LED6_G_COL, ORANGE_G,
+  LED6_R_COL, ORANGE_R,
+  LED7_B_COL, ORANGE_B,
+  LED7_G_COL, ORANGE_G,
+  LED7_R_COL, ORANGE_R,
+  LED8_B_COL, ORANGE_B,
+  LED8_G_COL, ORANGE_G,
+  LED8_R_COL, ORANGE_R,
+  LED9_B_COL, ORANGE_B,
+  LED9_G_COL, ORANGE_G,
+  LED9_R_COL, ORANGE_R,
+  LED10_B_COL, ORANGE_B,
+  LED10_G_COL, ORANGE_G,
+  LED10_R_COL, ORANGE_R,
+  LED11_B_COL, ORANGE_B,
+  LED11_G_COL, ORANGE_G,
+  LED11_R_COL, ORANGE_R,
+  LED12_B_COL, ORANGE_B,
+  LED12_G_COL, ORANGE_G,
+  LED12_R_COL, ORANGE_R,
+
+  0x49, 0x00,
+};
+
+unsigned char aw21036_led_darkblue_power_on[] = {
+  0x6E, LED_CURRENT_MAX,
+  0xA1, 0x00,
+
+  0x01, 0xFF,
+  0x02, 0xFF,
+  0x03, 0xFF,
+  0x04, 0xFF,
+  0x05, 0xFF,
+  0x06, 0xFF,
+  0x07, 0xFF,
+  0x08, 0xFF,
+  0x09, 0xFF,
+  0x0A, 0xFF,
+  0x0B, 0xFF,
+  0x0C, 0xFF,
+  0x0D, 0xFF,
+  0x0E, 0xFF,
+  0x0F, 0xFF,
+  0x10, 0xFF,
+  0x11, 0xFF,
+  0x12, 0xFF,
+  0x13, 0xFF,
+  0x14, 0xFF,
+  0x15, 0xFF,
+  0x16, 0xFF,
+  0x17, 0xFF,
+  0x18, 0xFF,
+  0x19, 0xFF,
+  0x1A, 0xFF,
+  0x1B, 0xFF,
+  0x1C, 0xFF,
+  0x1D, 0xFF,
+  0x1E, 0xFF,
+  0x1F, 0xFF,
+  0x20, 0xFF,
+  0x21, 0xFF,
+  0x22, 0xFF,
+  0x23, 0xFF,
+  0x24, 0xFF,
+
+  LED1_B_COL, DARKBLUE_B,
+  LED1_G_COL, DARKBLUE_G,
+  LED1_R_COL, DARKBLUE_R,
+  LED2_B_COL, DARKBLUE_B,
+  LED2_G_COL, DARKBLUE_G,
+  LED2_R_COL, DARKBLUE_R,
+  LED3_B_COL, DARKBLUE_B,
+  LED3_G_COL, DARKBLUE_G,
+  LED3_R_COL, DARKBLUE_R,
+  LED4_B_COL, DARKBLUE_B,
+  LED4_G_COL, DARKBLUE_G,
+  LED4_R_COL, DARKBLUE_R,
+  LED5_B_COL, DARKBLUE_B,
+  LED5_G_COL, DARKBLUE_G,
+  LED5_R_COL, DARKBLUE_R,
+  LED6_B_COL, DARKBLUE_B,
+  LED6_G_COL, DARKBLUE_G,
+  LED6_R_COL, DARKBLUE_R,
+  LED7_B_COL, DARKBLUE_B,
+  LED7_G_COL, DARKBLUE_G,
+  LED7_R_COL, DARKBLUE_R,
+  LED8_B_COL, DARKBLUE_B,
+  LED8_G_COL, DARKBLUE_G,
+  LED8_R_COL, DARKBLUE_R,
+  LED9_B_COL, DARKBLUE_B,
+  LED9_G_COL, DARKBLUE_G,
+  LED9_R_COL, DARKBLUE_R,
+  LED10_B_COL, DARKBLUE_B,
+  LED10_G_COL, DARKBLUE_G,
+  LED10_R_COL, DARKBLUE_R,
+  LED11_B_COL, DARKBLUE_B,
+  LED11_G_COL, DARKBLUE_G,
+  LED11_R_COL, DARKBLUE_R,
+  LED12_B_COL, DARKBLUE_B,
+  LED12_G_COL, DARKBLUE_G,
+  LED12_R_COL, DARKBLUE_R,
+
+  0xA6, 0xFF,                   //maximum brightness
+  0xA7, 0x00,                   //minimum brightness
+  0xAB, 0xFF,                   //led1~24 ,mode enable
+  0xAC, 0x1F,                   //led25-36,mode enable
+  0xA2, 0x56,                   //rise time ,hold on time
+  0xA3, 0x50,                   //fall time,hold off time
+  0xA4, 0xF0,                   //stop at ON state,start at OFF state,MSB loop times
+  0xA5, 0x01,                   //loop times
+
+  0xA0, 0x07,
+
+  0xA1, 0x01,
+
+  0x49, 0x00,
+};
+
+unsigned char aw21036_led_darkblue_power_off[] = {
+  0x6E, LED_CURRENT_MAX,
+  0xA1, 0x00,
+
+  0x01, 0xFF,
+  0x02, 0xFF,
+  0x03, 0xFF,
+  0x04, 0xFF,
+  0x05, 0xFF,
+  0x06, 0xFF,
+  0x07, 0xFF,
+  0x08, 0xFF,
+  0x09, 0xFF,
+  0x0A, 0xFF,
+  0x0B, 0xFF,
+  0x0C, 0xFF,
+  0x0D, 0xFF,
+  0x0E, 0xFF,
+  0x0F, 0xFF,
+  0x10, 0xFF,
+  0x11, 0xFF,
+  0x12, 0xFF,
+  0x13, 0xFF,
+  0x14, 0xFF,
+  0x15, 0xFF,
+  0x16, 0xFF,
+  0x17, 0xFF,
+  0x18, 0xFF,
+  0x19, 0xFF,
+  0x1A, 0xFF,
+  0x1B, 0xFF,
+  0x1C, 0xFF,
+  0x1D, 0xFF,
+  0x1E, 0xFF,
+  0x1F, 0xFF,
+  0x20, 0xFF,
+  0x21, 0xFF,
+  0x22, 0xFF,
+  0x23, 0xFF,
+  0x24, 0xFF,
+
+  LED1_B_COL, DARKBLUE_B,
+  LED1_G_COL, DARKBLUE_G,
+  LED1_R_COL, DARKBLUE_R,
+  LED2_B_COL, DARKBLUE_B,
+  LED2_G_COL, DARKBLUE_G,
+  LED2_R_COL, DARKBLUE_R,
+  LED3_B_COL, DARKBLUE_B,
+  LED3_G_COL, DARKBLUE_G,
+  LED3_R_COL, DARKBLUE_R,
+  LED4_B_COL, DARKBLUE_B,
+  LED4_G_COL, DARKBLUE_G,
+  LED4_R_COL, DARKBLUE_R,
+  LED5_B_COL, DARKBLUE_B,
+  LED5_G_COL, DARKBLUE_G,
+  LED5_R_COL, DARKBLUE_R,
+  LED6_B_COL, DARKBLUE_B,
+  LED6_G_COL, DARKBLUE_G,
+  LED6_R_COL, DARKBLUE_R,
+  LED7_B_COL, DARKBLUE_B,
+  LED7_G_COL, DARKBLUE_G,
+  LED7_R_COL, DARKBLUE_R,
+  LED8_B_COL, DARKBLUE_B,
+  LED8_G_COL, DARKBLUE_G,
+  LED8_R_COL, DARKBLUE_R,
+  LED9_B_COL, DARKBLUE_B,
+  LED9_G_COL, DARKBLUE_G,
+  LED9_R_COL, DARKBLUE_R,
+  LED10_B_COL, DARKBLUE_B,
+  LED10_G_COL, DARKBLUE_G,
+  LED10_R_COL, DARKBLUE_R,
+  LED11_B_COL, DARKBLUE_B,
+  LED11_G_COL, DARKBLUE_G,
+  LED11_R_COL, DARKBLUE_R,
+  LED12_B_COL, DARKBLUE_B,
+  LED12_G_COL, DARKBLUE_G,
+  LED12_R_COL, DARKBLUE_R,
+
+  0xA6, 0xFF,                   //maximum brightness
+  0xA7, 0x00,                   //minimum brightness
+  0xAB, 0xFF,                   //led1~24 ,mode enable
+  0xAC, 0x1F,                   //led25-36,mode enable
+  0xA2, 0x56,                   //rise time ,hold on time
+  0xA3, 0x50,                   //fall time,hold off time
+  0xA4, 0x20,                   //stop at ON state,start at OFF state,MSB loop times
+  0xA5, 0x01,                   //loop times
+
+  0xA0, 0x07,
+
+  0xA1, 0x01,
+
+  0x49, 0x00,
+};
+
+unsigned char aw21036_led_darkblue_breath_forever[] = {
+
+  0x6E, LED_CURRENT_MAX,
+
+  0xA1, 0x00,
+
+  0x01, 0xFF,
+  0x02, 0xFF,
+  0x03, 0xFF,
+  0x04, 0xFF,
+  0x05, 0xFF,
+  0x06, 0xFF,
+  0x07, 0xFF,
+  0x08, 0xFF,
+  0x09, 0xFF,
+  0x0A, 0xFF,
+  0x0B, 0xFF,
+  0x0C, 0xFF,
+  0x0D, 0xFF,
+  0x0E, 0xFF,
+  0x0F, 0xFF,
+  0x10, 0xFF,
+  0x11, 0xFF,
+  0x12, 0xFF,
+  0x13, 0xFF,
+  0x14, 0xFF,
+  0x15, 0xFF,
+  0x16, 0xFF,
+  0x17, 0xFF,
+  0x18, 0xFF,
+  0x19, 0xFF,
+  0x1A, 0xFF,
+  0x1B, 0xFF,
+  0x1C, 0xFF,
+  0x1D, 0xFF,
+  0x1E, 0xFF,
+  0x1F, 0xFF,
+  0x20, 0xFF,
+  0x21, 0xFF,
+  0x22, 0xFF,
+  0x23, 0xFF,
+  0x24, 0xFF,
+
+  LED1_B_COL, DARKBLUE_B,
+  LED1_G_COL, DARKBLUE_G,
+  LED1_R_COL, DARKBLUE_R,
+  LED2_B_COL, DARKBLUE_B,
+  LED2_G_COL, DARKBLUE_G,
+  LED2_R_COL, DARKBLUE_R,
+  LED3_B_COL, DARKBLUE_B,
+  LED3_G_COL, DARKBLUE_G,
+  LED3_R_COL, DARKBLUE_R,
+  LED4_B_COL, DARKBLUE_B,
+  LED4_G_COL, DARKBLUE_G,
+  LED4_R_COL, DARKBLUE_R,
+  LED5_B_COL, DARKBLUE_B,
+  LED5_G_COL, DARKBLUE_G,
+  LED5_R_COL, DARKBLUE_R,
+  LED6_B_COL, DARKBLUE_B,
+  LED6_G_COL, DARKBLUE_G,
+  LED6_R_COL, DARKBLUE_R,
+  LED7_B_COL, DARKBLUE_B,
+  LED7_G_COL, DARKBLUE_G,
+  LED7_R_COL, DARKBLUE_R,
+  LED8_B_COL, DARKBLUE_B,
+  LED8_G_COL, DARKBLUE_G,
+  LED8_R_COL, DARKBLUE_R,
+  LED9_B_COL, DARKBLUE_B,
+  LED9_G_COL, DARKBLUE_G,
+  LED9_R_COL, DARKBLUE_R,
+  LED10_B_COL, DARKBLUE_B,
+  LED10_G_COL, DARKBLUE_G,
+  LED10_R_COL, DARKBLUE_R,
+  LED11_B_COL, DARKBLUE_B,
+  LED11_G_COL, DARKBLUE_G,
+  LED11_R_COL, DARKBLUE_R,
+  LED12_B_COL, DARKBLUE_B,
+  LED12_G_COL, DARKBLUE_G,
+  LED12_R_COL, DARKBLUE_R,
+
+  0xA6, 0xFF,
+  0xA7, 0x00,
+  0xAB, 0xFF,
+  0xAC, 0x1F,
+  0xA2, 0x56,
+  0xA3, 0x50,
+  0xA4, 0x00,
+  0xA5, 0x00,
+
+  0xA0, 0x07,
+
+  0xA1, 0x01,
+
+  0x49, 0x00,
+};
+
+unsigned char aw21036_led_skyblue_breath_forever[] = {
+
+  0x6E, LED_CURRENT_MAX,
+  0xA1, 0x00,
+
+  0x01, 0xFF,
+  0x02, 0xFF,
+  0x03, 0xFF,
+  0x04, 0xFF,
+  0x05, 0xFF,
+  0x06, 0xFF,
+  0x07, 0xFF,
+  0x08, 0xFF,
+  0x09, 0xFF,
+  0x0A, 0xFF,
+  0x0B, 0xFF,
+  0x0C, 0xFF,
+  0x0D, 0xFF,
+  0x0E, 0xFF,
+  0x0F, 0xFF,
+  0x10, 0xFF,
+  0x11, 0xFF,
+  0x12, 0xFF,
+  0x13, 0xFF,
+  0x14, 0xFF,
+  0x15, 0xFF,
+  0x16, 0xFF,
+  0x17, 0xFF,
+  0x18, 0xFF,
+  0x19, 0xFF,
+  0x1A, 0xFF,
+  0x1B, 0xFF,
+  0x1C, 0xFF,
+  0x1D, 0xFF,
+  0x1E, 0xFF,
+  0x1F, 0xFF,
+  0x20, 0xFF,
+  0x21, 0xFF,
+  0x22, 0xFF,
+  0x23, 0xFF,
+  0x24, 0xFF,
+
+  LED1_B_COL, SKYBLUE_B,
+  LED1_G_COL, SKYBLUE_G,
+  LED1_R_COL, SKYBLUE_R,
+  LED2_B_COL, SKYBLUE_B,
+  LED2_G_COL, SKYBLUE_G,
+  LED2_R_COL, SKYBLUE_R,
+  LED3_B_COL, SKYBLUE_B,
+  LED3_G_COL, SKYBLUE_G,
+  LED3_R_COL, SKYBLUE_R,
+  LED4_B_COL, SKYBLUE_B,
+  LED4_G_COL, SKYBLUE_G,
+  LED4_R_COL, SKYBLUE_R,
+  LED5_B_COL, SKYBLUE_B,
+  LED5_G_COL, SKYBLUE_G,
+  LED5_R_COL, SKYBLUE_R,
+  LED6_B_COL, SKYBLUE_B,
+  LED6_G_COL, SKYBLUE_G,
+  LED6_R_COL, SKYBLUE_R,
+  LED7_B_COL, SKYBLUE_B,
+  LED7_G_COL, SKYBLUE_G,
+  LED7_R_COL, SKYBLUE_R,
+  LED8_B_COL, SKYBLUE_B,
+  LED8_G_COL, SKYBLUE_G,
+  LED8_R_COL, SKYBLUE_R,
+  LED9_B_COL, SKYBLUE_B,
+  LED9_G_COL, SKYBLUE_G,
+  LED9_R_COL, SKYBLUE_R,
+  LED10_B_COL, SKYBLUE_B,
+  LED10_G_COL, SKYBLUE_G,
+  LED10_R_COL, SKYBLUE_R,
+  LED11_B_COL, SKYBLUE_B,
+  LED11_G_COL, SKYBLUE_G,
+  LED11_R_COL, SKYBLUE_R,
+  LED12_B_COL, SKYBLUE_B,
+  LED12_G_COL, SKYBLUE_G,
+  LED12_R_COL, SKYBLUE_R,
+
+  0xA6, 0xFF,
+  0xA7, 0x00,
+  0xAB, 0xFF,
+  0xAC, 0x1F,
+  0xA2, 0x56,
+  0xA3, 0x50,
+  0xA4, 0x00,
+  0xA5, 0x00,
+
+  0xA0, 0x07,
+
+  0xA1, 0x01,
+
+  0x49, 0x00,
+};
+
+unsigned char aw21036_led_darkblue_blink_forever[] = {
+
+  0x6E, LED_CURRENT_MAX,
+  0xA1, 0x00,
+
+  0x01, 0xFF,
+  0x02, 0xFF,
+  0x03, 0xFF,
+  0x04, 0xFF,
+  0x05, 0xFF,
+  0x06, 0xFF,
+  0x07, 0xFF,
+  0x08, 0xFF,
+  0x09, 0xFF,
+  0x0A, 0xFF,
+  0x0B, 0xFF,
+  0x0C, 0xFF,
+  0x0D, 0xFF,
+  0x0E, 0xFF,
+  0x0F, 0xFF,
+  0x10, 0xFF,
+  0x11, 0xFF,
+  0x12, 0xFF,
+  0x13, 0xFF,
+  0x14, 0xFF,
+  0x15, 0xFF,
+  0x16, 0xFF,
+  0x17, 0xFF,
+  0x18, 0xFF,
+  0x19, 0xFF,
+  0x1A, 0xFF,
+  0x1B, 0xFF,
+  0x1C, 0xFF,
+  0x1D, 0xFF,
+  0x1E, 0xFF,
+  0x1F, 0xFF,
+  0x20, 0xFF,
+  0x21, 0xFF,
+  0x22, 0xFF,
+  0x23, 0xFF,
+  0x24, 0xFF,
+
+  LED1_B_COL, DARKBLUE_B,
+  LED1_G_COL, DARKBLUE_G,
+  LED1_R_COL, DARKBLUE_R,
+  LED2_B_COL, DARKBLUE_B,
+  LED2_G_COL, DARKBLUE_G,
+  LED2_R_COL, DARKBLUE_R,
+  LED3_B_COL, DARKBLUE_B,
+  LED3_G_COL, DARKBLUE_G,
+  LED3_R_COL, DARKBLUE_R,
+  LED4_B_COL, DARKBLUE_B,
+  LED4_G_COL, DARKBLUE_G,
+  LED4_R_COL, DARKBLUE_R,
+  LED5_B_COL, DARKBLUE_B,
+  LED5_G_COL, DARKBLUE_G,
+  LED5_R_COL, DARKBLUE_R,
+  LED6_B_COL, DARKBLUE_B,
+  LED6_G_COL, DARKBLUE_G,
+  LED6_R_COL, DARKBLUE_R,
+  LED7_B_COL, DARKBLUE_B,
+  LED7_G_COL, DARKBLUE_G,
+  LED7_R_COL, DARKBLUE_R,
+  LED8_B_COL, DARKBLUE_B,
+  LED8_G_COL, DARKBLUE_G,
+  LED8_R_COL, DARKBLUE_R,
+  LED9_B_COL, DARKBLUE_B,
+  LED9_G_COL, DARKBLUE_G,
+  LED9_R_COL, DARKBLUE_R,
+  LED10_B_COL, DARKBLUE_B,
+  LED10_G_COL, DARKBLUE_G,
+  LED10_R_COL, DARKBLUE_R,
+  LED11_B_COL, DARKBLUE_B,
+  LED11_G_COL, DARKBLUE_G,
+  LED11_R_COL, DARKBLUE_R,
+  LED12_B_COL, DARKBLUE_B,
+  LED12_G_COL, DARKBLUE_G,
+  LED12_R_COL, DARKBLUE_R,
+
+  0xA6, 0xFF,
+  0xA7, 0x00,
+  0xAB, 0xFF,
+  0xAC, 0x1F,
+  0xA2, 0x05,
+  0xA3, 0x05,
+  0xA4, 0x00,
+  0xA5, 0x00,
+
+  0xA0, 0x07,
+
+  0xA1, 0x01,
+
+  0x49, 0x00,
+};
+
+unsigned char aw21036_led_orange_blink_forever[] = {
+
+  0x6E, LED_CURRENT_MAX,
+  0xA1, 0x00,
+
+  0x01, 0xFF,
+  0x02, 0xFF,
+  0x03, 0xFF,
+  0x04, 0xFF,
+  0x05, 0xFF,
+  0x06, 0xFF,
+  0x07, 0xFF,
+  0x08, 0xFF,
+  0x09, 0xFF,
+  0x0A, 0xFF,
+  0x0B, 0xFF,
+  0x0C, 0xFF,
+  0x0D, 0xFF,
+  0x0E, 0xFF,
+  0x0F, 0xFF,
+  0x10, 0xFF,
+  0x11, 0xFF,
+  0x12, 0xFF,
+  0x13, 0xFF,
+  0x14, 0xFF,
+  0x15, 0xFF,
+  0x16, 0xFF,
+  0x17, 0xFF,
+  0x18, 0xFF,
+  0x19, 0xFF,
+  0x1A, 0xFF,
+  0x1B, 0xFF,
+  0x1C, 0xFF,
+  0x1D, 0xFF,
+  0x1E, 0xFF,
+  0x1F, 0xFF,
+  0x20, 0xFF,
+  0x21, 0xFF,
+  0x22, 0xFF,
+  0x23, 0xFF,
+  0x24, 0xFF,
+
+  LED1_B_COL, ORANGE_B,
+  LED1_G_COL, ORANGE_G,
+  LED1_R_COL, ORANGE_R,
+  LED2_B_COL, ORANGE_B,
+  LED2_G_COL, ORANGE_G,
+  LED2_R_COL, ORANGE_R,
+  LED3_B_COL, ORANGE_B,
+  LED3_G_COL, ORANGE_G,
+  LED3_R_COL, ORANGE_R,
+  LED4_B_COL, ORANGE_B,
+  LED4_G_COL, ORANGE_G,
+  LED4_R_COL, ORANGE_R,
+  LED5_B_COL, ORANGE_B,
+  LED5_G_COL, ORANGE_G,
+  LED5_R_COL, ORANGE_R,
+  LED6_B_COL, ORANGE_B,
+  LED6_G_COL, ORANGE_G,
+  LED6_R_COL, ORANGE_R,
+  LED7_B_COL, ORANGE_B,
+  LED7_G_COL, ORANGE_G,
+  LED7_R_COL, ORANGE_R,
+  LED8_B_COL, ORANGE_B,
+  LED8_G_COL, ORANGE_G,
+  LED8_R_COL, ORANGE_R,
+  LED9_B_COL, ORANGE_B,
+  LED9_G_COL, ORANGE_G,
+  LED9_R_COL, ORANGE_R,
+  LED10_B_COL, ORANGE_B,
+  LED10_G_COL, ORANGE_G,
+  LED10_R_COL, ORANGE_R,
+  LED11_B_COL, ORANGE_B,
+  LED11_G_COL, ORANGE_G,
+  LED11_R_COL, ORANGE_R,
+  LED12_B_COL, ORANGE_B,
+  LED12_G_COL, ORANGE_G,
+  LED12_R_COL, ORANGE_R,
+
+  0xA6, 0xFF,
+  0xA7, 0x00,
+  0xAB, 0xFF,
+  0xAC, 0x1F,
+  0xA2, 0x05,
+  0xA3, 0x05,
+  0xA4, 0x00,
+  0xA5, 0x00,
+
+  0xA0, 0x07,
+
+  0xA1, 0x01,
+
+  0x49, 0x00,
+};
+
+unsigned char aw21036_led_red_blink_forever[] = {
+
+  0x6E, LED_CURRENT_MAX,
+  0xA1, 0x00,
+
+  0x01, 0xFF,
+  0x02, 0xFF,
+  0x03, 0xFF,
+  0x04, 0xFF,
+  0x05, 0xFF,
+  0x06, 0xFF,
+  0x07, 0xFF,
+  0x08, 0xFF,
+  0x09, 0xFF,
+  0x0A, 0xFF,
+  0x0B, 0xFF,
+  0x0C, 0xFF,
+  0x0D, 0xFF,
+  0x0E, 0xFF,
+  0x0F, 0xFF,
+  0x10, 0xFF,
+  0x11, 0xFF,
+  0x12, 0xFF,
+  0x13, 0xFF,
+  0x14, 0xFF,
+  0x15, 0xFF,
+  0x16, 0xFF,
+  0x17, 0xFF,
+  0x18, 0xFF,
+  0x19, 0xFF,
+  0x1A, 0xFF,
+  0x1B, 0xFF,
+  0x1C, 0xFF,
+  0x1D, 0xFF,
+  0x1E, 0xFF,
+  0x1F, 0xFF,
+  0x20, 0xFF,
+  0x21, 0xFF,
+  0x22, 0xFF,
+  0x23, 0xFF,
+  0x24, 0xFF,
+
+  LED1_B_COL, RED_B,
+  LED1_G_COL, RED_G,
+  LED1_R_COL, RED_R,
+  LED2_B_COL, RED_B,
+  LED2_G_COL, RED_G,
+  LED2_R_COL, RED_R,
+  LED3_B_COL, RED_B,
+  LED3_G_COL, RED_G,
+  LED3_R_COL, RED_R,
+  LED4_B_COL, RED_B,
+  LED4_G_COL, RED_G,
+  LED4_R_COL, RED_R,
+  LED5_B_COL, RED_B,
+  LED5_G_COL, RED_G,
+  LED5_R_COL, RED_R,
+  LED6_B_COL, RED_B,
+  LED6_G_COL, RED_G,
+  LED6_R_COL, RED_R,
+  LED7_B_COL, RED_B,
+  LED7_G_COL, RED_G,
+  LED7_R_COL, RED_R,
+  LED8_B_COL, RED_B,
+  LED8_G_COL, RED_G,
+  LED8_R_COL, RED_R,
+  LED9_B_COL, RED_B,
+  LED9_G_COL, RED_G,
+  LED9_R_COL, RED_R,
+  LED10_B_COL, RED_B,
+  LED10_G_COL, RED_G,
+  LED10_R_COL, RED_R,
+  LED11_B_COL, RED_B,
+  LED11_G_COL, RED_G,
+  LED11_R_COL, RED_R,
+  LED12_B_COL, RED_B,
+  LED12_G_COL, RED_G,
+  LED12_R_COL, RED_R,
+
+  0xA6, 0xFF,
+  0xA7, 0x00,
+  0xAB, 0xFF,
+  0xAC, 0x1F,
+  0xA2, 0x05,
+  0xA3, 0x05,
+  0xA4, 0x00,
+  0xA5, 0x00,
+
+  0xA0, 0x07,
+
+  0xA1, 0x01,
+
+  0x49, 0x00,
+};
+unsigned char aw21036_cfg_led_off[] = {
+  0x6E, 0x00,
+
+  0x4A, 0x00,
+  0x4B, 0x00,
+  0x4C, 0x00,
+  0x4D, 0x00,
+  0x4E, 0x00,
+  0x4F, 0x00,
+  0x50, 0x00,
+  0x51, 0x00,
+  0x52, 0x00,
+  0x53, 0x00,
+  0x54, 0x00,
+  0x55, 0x00,
+  0x56, 0x00,
+  0x57, 0x00,
+  0x58, 0x00,
+  0x59, 0x00,
+  0x5A, 0x00,
+  0x5B, 0x00,
+  0x5C, 0x00,
+  0x5D, 0x00,
+  0x5E, 0x00,
+  0x5F, 0x00,
+  0x60, 0x00,
+  0x61, 0x00,
+  0x62, 0x00,
+  0x63, 0x00,
+  0x64, 0x00,
+  0x65, 0x00,
+  0x66, 0x00,
+  0x67, 0x00,
+  0x68, 0x00,
+  0x69, 0x00,
+  0x6A, 0x00,
+  0x6B, 0x00,
+  0x6C, 0x00,
+  0x6D, 0x00,
+
+  0x01, 0x00,
+  0x02, 0x00,
+  0x03, 0x00,
+  0x04, 0x00,
+  0x05, 0x00,
+  0x06, 0x00,
+  0x07, 0x00,
+  0x08, 0x00,
+  0x09, 0x00,
+  0x0A, 0x00,
+  0x0B, 0x00,
+  0x0C, 0x00,
+  0x0D, 0x00,
+  0x0E, 0x00,
+  0x0F, 0x00,
+  0x10, 0x00,
+  0x11, 0x00,
+  0x12, 0x00,
+  0x13, 0x00,
+  0x14, 0x00,
+  0x15, 0x00,
+  0x16, 0x00,
+  0x17, 0x00,
+  0x18, 0x00,
+  0x19, 0x00,
+  0x1A, 0x00,
+  0x1B, 0x00,
+  0x1C, 0x00,
+  0x1D, 0x00,
+  0x1E, 0x00,
+  0x1F, 0x00,
+  0x20, 0x00,
+  0x21, 0x00,
+  0x22, 0x00,
+  0x23, 0x00,
+  0x24, 0x00,
+
+  0x49, 0x00,
+};
+
+#endif /* INC_LED_AW21036_REG_H_ */

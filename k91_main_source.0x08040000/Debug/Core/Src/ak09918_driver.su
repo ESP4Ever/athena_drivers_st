@@ -1,0 +1,11 @@
+ak09918_driver.c:45:6:AKS_ConvertCoordinate	40	static
+ak09918_driver.c:78:16:platform_write	40	static
+ak09918_driver.c:100:16:platform_read	40	static
+ak09918_driver.c:112:5:ak09918_mag_init_complete	16	static
+ak09918_driver.c:117:9:ak099xx_start	24	static
+ak09918_driver.c:129:9:ak099xx_stop	24	static
+ak09918_driver.c:141:5:ak09918_mag_activate	24	static
+ak09918_driver.c:153:5:ak09918_mag_publish_sensor_data	152	static
+ak09918_driver.c:178:5:ak09918_mag_init	24	static
+ak09918_driver.c:215:5:ak09918_mag_config	24	static
+ak09918_driver.c:229:5:ak09918_mag_publish_config_resp	16	static

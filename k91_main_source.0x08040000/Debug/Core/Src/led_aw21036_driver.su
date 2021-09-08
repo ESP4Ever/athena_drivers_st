@@ -1,0 +1,17 @@
+led_aw21036_driver.c:86:16:headled_platform_write	40	static
+led_aw21036_driver.c:108:16:headled_platform_read	40	static
+led_aw21036_driver.c:119:12:aw21036_i2c_write_bits	32	static
+led_aw21036_driver.c:131:12:aw21036_chip_enable	16	static
+led_aw21036_driver.c:145:12:aw21036_pwm_freq_cfg	16	static
+led_aw21036_driver.c:161:13:aw21036_update_cfg_array	32	static
+led_aw21036_driver.c:171:12:aw21036_cfg_update	16	static
+led_aw21036_driver.c:253:12:aw21036_led_init	24	static
+led_aw21036_driver.c:276:12:headled_hw_reset	16	static
+led_aw21036_driver.c:291:5:headled_init	24	static
+led_aw21036_driver.c:323:16:headled_enable	16	static
+led_aw21036_driver.c:334:16:headled_disable	16	static
+led_aw21036_driver.c:344:5:headled_activate	24	static
+led_aw21036_driver.c:356:5:headled_init_complete	16	static
+led_aw21036_driver.c:362:5:headled_config	24	static
+led_aw21036_driver.c:403:5:headled_publish_config_resp	16	static
+led_aw21036_driver.c:409:6:headled_flow_water	8	static

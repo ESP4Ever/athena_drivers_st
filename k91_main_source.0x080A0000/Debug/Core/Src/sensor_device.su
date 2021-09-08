@@ -1,0 +1,12 @@
+sensor_device.c:375:6:sensor_avaiable_check	16	static
+sensor_device.c:389:6:sensor_mainboard_check	8	static
+sensor_device.c:407:9:sensor_get_index_length	16	static
+sensor_device.c:417:6:sensor_register	16	static
+sensor_device.c:442:6:init_registered_sensors	120	static
+sensor_device.c:488:5:sensor_op_timer_enable	24	static
+sensor_device.c:504:5:sensor_op_timer_disable	24	static
+sensor_device.c:522:5:sensor_config	152	static
+sensor_device.c:826:5:sensor_timer_handler	16	static
+sensor_device.c:862:5:sensor_irq_handler	40	static
+sensor_device.c:883:5:sensor_data_handler	16	static
+sensor_device.c:904:10:sensor_get_timestamp	16	static

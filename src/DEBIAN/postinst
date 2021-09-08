@@ -1,0 +1,4 @@
+#!/bin/sh
+
+chmod  +x /usr/bin/can-ota
+chmod  +x /usr/bin/can-test-nusensors

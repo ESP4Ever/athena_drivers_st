@@ -1,0 +1,8 @@
+speed_vector.c:25:5:speedv_init	16	static
+speed_vector.c:44:5:speedv_init_complete	16	static
+speed_vector.c:49:5:speedv_enable	96	static
+speed_vector.c:71:5:speedv_disable	96	static
+speed_vector.c:95:5:speedv_activate	16	static
+speed_vector.c:105:5:speedv_publish_sensor_data	112	static
+speed_vector.c:132:5:speedv_config	24	static
+speed_vector.c:148:5:speedv_publish_config_resp	16	static
