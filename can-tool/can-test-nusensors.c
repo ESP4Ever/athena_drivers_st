@@ -922,42 +922,31 @@ int convert_sensor_data(sensor_data_converter * sensor_data_converter,
              recv_frame->data, sizeof(uint32_t));
       printf("receive sensordata, type: %d, data: %f %f %f %f %lld, count:%d\n",
              sensor_type,
-             sensor_data_converter->sensor_data[sensor_type].sensor_data_t.vec.
-             data[0],
-             sensor_data_converter->sensor_data[sensor_type].sensor_data_t.vec.
-             data[1],
-             sensor_data_converter->sensor_data[sensor_type].sensor_data_t.vec.
-             data[2],
-             sensor_data_converter->sensor_data[sensor_type].sensor_data_t.vec.
-             data[3], sensor_data_converter->sensor_data[sensor_type].timestamp,
+             sensor_data_converter->sensor_data[sensor_type].sensor_data_t.vec.data[0],
+             sensor_data_converter->sensor_data[sensor_type].sensor_data_t.vec.data[1],
+             sensor_data_converter->sensor_data[sensor_type].sensor_data_t.vec.data[2],
+             sensor_data_converter->sensor_data[sensor_type].sensor_data_t.vec.data[3],
+             sensor_data_converter->sensor_data[sensor_type].timestamp,
              print_count);
       print_count++;
       sensor_data_converter->sensor_data_bitmask[sensor_type] = 0x00;
       if (print_count >= sample_number) {
         print_stop = 1;
         print_count = 0;
-        sensor_data_converter->sensor_data[sensor_type].sensor_data_t.vec.
-            data[0] = 0;
-        sensor_data_converter->sensor_data[sensor_type].sensor_data_t.vec.
-            data[1] = 0;
-        sensor_data_converter->sensor_data[sensor_type].sensor_data_t.vec.
-            data[2] = 0;
-        sensor_data_converter->sensor_data[sensor_type].sensor_data_t.vec.
-            data[3] = 0;
+        sensor_data_converter->sensor_data[sensor_type].sensor_data_t.vec.data[0] = 0;
+        sensor_data_converter->sensor_data[sensor_type].sensor_data_t.vec.data[1] = 0;
+        sensor_data_converter->sensor_data[sensor_type].sensor_data_t.vec.data[2] = 0;
+        sensor_data_converter->sensor_data[sensor_type].sensor_data_t.vec.data[3] = 0;
         sensor_data_converter->sensor_data[sensor_type].timestamp = 0;
       }
       return 0;
     }                           //else
     //printf("it is timstamp message, but related data is not full, ignore the data and timstamp\n");
     sensor_data_converter->sensor_data_bitmask[sensor_type] = 0x00;
-    sensor_data_converter->sensor_data[sensor_type].sensor_data_t.vec.data[0] =
-        0;
-    sensor_data_converter->sensor_data[sensor_type].sensor_data_t.vec.data[1] =
-        0;
-    sensor_data_converter->sensor_data[sensor_type].sensor_data_t.vec.data[2] =
-        0;
-    sensor_data_converter->sensor_data[sensor_type].sensor_data_t.vec.data[3] =
-        0;
+    sensor_data_converter->sensor_data[sensor_type].sensor_data_t.vec.data[0] = 0;
+    sensor_data_converter->sensor_data[sensor_type].sensor_data_t.vec.data[1] = 0;
+    sensor_data_converter->sensor_data[sensor_type].sensor_data_t.vec.data[2] = 0;
+    sensor_data_converter->sensor_data[sensor_type].sensor_data_t.vec.data[3] = 0;
     sensor_data_converter->sensor_data[sensor_type].timestamp = 0;
   }                             //else
   //printf("not sensor message from can0\n");
